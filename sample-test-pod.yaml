@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cuda-vectoradd-1g
+spec:
+  restartPolicy: Never
+  containers:
+  - name: vectoradd
+    image: nvidia/samples:vectoradd-cuda11.2.1
+    command: ["/bin/bash", "-c"]
+    args:
+      - >
+        ./vectorAdd;
+        echo "✅ VectorAdd completed — sleeping indefinitely...";
+        sleep infinity;
+    resources:
+      requests:
+        cpu: "2"
+        memory: "1Gi"
+        nvidia.com/mig-1g.10gb: 1
+      limits:
+        cpu: "2"
+        memory: "1Gi"
+        nvidia.com/mig-1g.10gb: 1
+

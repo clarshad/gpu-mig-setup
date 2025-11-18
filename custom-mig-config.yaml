@@ -11,9 +11,12 @@ data:
         - devices: all
           mig-enabled: false
       
-      five-1g-one-2g:
-        - devices: all 
+      three-2g-seven-1g:
+        - devices:
+            - 0
           mig-enabled: true
           mig-devices:
-            "1g.5gb": 5
-            "2g.10gb": 1
+            "1g.10gb": 2
+        - devices:
+            - 1
+          mig-enabled: false
